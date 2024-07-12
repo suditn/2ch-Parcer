@@ -41,15 +41,15 @@ def parser_data(url_video, name_folder):
     new_name_folder = ""
     new_name_folder = name_folder.translate(str.maketrans('', '', "\\/<br><em>"))
     print(new_name_folder)
-    if not os.path.exists(new_name_folder[1:50]):
-        os.makedirs(new_name_folder[1:50])
+    if not os.path.exists(new_name_folder[1:20]):
+        os.makedirs(new_name_folder[1:20])
         print("Папка была создана, начинаю загрузку файлов\n")
     else:
         print("Начинаю загрузку файлов\n")
     for video in url_video:
         print("Файл https://2ch.hk"+video)
-        if not os.path.exists(new_name_folder[1:50]+"/"+video.split("/")[-1]):
-            with open(new_name_folder[1:50]+"/"+video.split("/")[-1], 'wb') as v:
+        if not os.path.exists(new_name_folder[1:20]+"/"+video.split("/")[-1]):
+            with open(new_name_folder[1:20]+"/"+video.split("/")[-1], 'wb') as v:
                 v.write(requests.get("https://2ch.hk"+video).content)
                 print("\nФайл сохранён\n")
         else:
